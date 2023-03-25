@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 c1 = 'StateName'
 c2 = 'AnnualIncome'
 # Read the CSV file
-income_data = pd.read_csv('grouped_data.csv')
+income_data = pd.read_csv('data/grouped_data.csv')
 
 # Calculate the average annual income by state
 state_avg_income = income_data.groupby(c1)[c2].mean().reset_index()
