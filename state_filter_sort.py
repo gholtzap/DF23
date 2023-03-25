@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import scipy.stats as st
+from statsmodels.stats.power import TTestIndPower
 
 c1 = 'StateName'
 c2 = 'AnnualIncome'
@@ -15,3 +17,24 @@ grouped_data = filtered_data.groupby(c1)[c2].mean().reset_index()
 
 # Save the aggregated data to a new CSV file
 grouped_data.to_csv('data/grouped_data.csv', index=False)
+
+# print out all income values for a particular state 
+state_data = filtered_data.query("StateName == 'Arizona'")
+x = state_data[c2].tolist()
+#print(x)
+#print(len(x))
+
+# use a power analysis to determine what sample size needs to be
+# a = 0.05, b = 0.8, e = 0.2
+
+def sample_size(a,p,e)->int:
+    
+    # Perform power analysis
+    power_analysis = TTestIndPower()
+    sample_size = power_analysis.solve_power(effect_size=e, alpha=a, power=p)
+
+    print("Required sample size:", round(sample_size))
+    return round(sample_size)
+    
+
+print(sample_size(0.05,0.8,0.2))
