@@ -16,7 +16,6 @@ state_avg_income = income_data.groupby(c1)[c2].mean().reset_index()
 # Read the shapefile for US states
 us_states = gpd.read_file('maps/usa-states-census-2014.shp')
 
-
 # Merge the shapefile with the average annual income data
 us_states_data = us_states.merge(state_avg_income, left_on='NAME', right_on=c1)
 
@@ -28,10 +27,6 @@ us_boundary = gpd.read_file('maps/usa-states-census-2014.shp')
 
 # Plot / format the heatmap
 fig, ax = plt.subplots(1, figsize=(20, 10))
-
-# Plot the boundary
-#us_boundary.boundary.plot(ax=ax, linewidth=1, edgecolor='black')
-
 
 # custom color map
 
@@ -49,7 +44,6 @@ ax.set_title('Combined Data', fontdict={'fontsize': 14}, pad=20)
 ax.set_axis_off()
 plt.tight_layout()
 #plt.show()
-
 
 # save as PNG
 plt.savefig("heatmaps/combined_heatmap.png", dpi=300)
