@@ -23,6 +23,16 @@ us_states_data = us_states.merge(state_avg_income, left_on='NAME', right_on=c1)
 # Plot / format the heatmap
 fig, ax = plt.subplots(1, figsize=(20, 10))
 
+# Read the boundary shapefile
+us_boundary = gpd.read_file('maps/usa-states-census-2014.shp')
+
+# Plot / format the heatmap
+fig, ax = plt.subplots(1, figsize=(20, 10))
+
+# Plot the boundary
+us_boundary.boundary.plot(ax=ax, linewidth=1, edgecolor='black')
+
+
 # custom color map
 
 colors_income = [

@@ -53,9 +53,10 @@ def split_data_by_month(data):
     monthly_data = defaultdict(list)
 
     header = data[0]  # Save the header row
+    date_column_index = header.index('CreatedUtc')  # Get the index of the 'CreatedUtc' column
 
     for row in data[1:]:  # Skip the header row
-        date_str = row[0]  # assuming the date is the first column in your CSV
+        date_str = row[date_column_index]  # Get the date from the 'CreatedUtc' column
         try:
             date_obj = parse_date(date_str)
             month_key = (date_obj.year, date_obj.month)
