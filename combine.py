@@ -36,3 +36,12 @@ for key, value in scores_income.items():
         combined_dict[key] *= (1/value)  # If the key exists, multiply by the inverse of the income
 
 print(combined_dict)
+
+# Convert the dictionary to a pandas DataFrame
+
+df = pd.DataFrame(list(combined_dict.items()), columns=['A', 'B'])
+# Remove rows with a value of '0' in column B
+df = df[df['B'] != 0]
+
+# Save the DataFrame as a CSV file
+df.to_csv('data/combined_data.csv', index=False)
