@@ -2,7 +2,6 @@ import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
-import numpy as np
 
 c1 = 'StateName'
 c2 = 'AnnualIncome'

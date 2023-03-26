@@ -1,6 +1,5 @@
 import pandas as pd
 import zipcodes
-import numpy as np
 
 # Read the CSV file
 data = pd.read_csv('data/clients_first2000.csv')
