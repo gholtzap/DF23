@@ -5,6 +5,7 @@ from matplotlib.colors import LinearSegmentedColormap
 
 c1 = 'State'
 c2 = 'Count'
+
 # Read the CSV file
 housing_data = pd.read_csv('data/housing_data.csv')
 
@@ -38,9 +39,9 @@ fig, ax = plt.subplots(1, figsize=(20, 10))
 # custom color map
 colors_housing = [
     
-    (0/255, 200/255, 0/255) ,  # Lowest color
+    (0/255, 200/255, 0/255) ,    # Lowest color
     (199/255, 192/255, 70/255),  # Middle color
-    (200/255, 0/255, 0/255)# Highest color
+    (200/255, 0/255, 0/255)      # Highest color
 ]
 
 cmap_housing = LinearSegmentedColormap.from_list("custom", colors_housing)
@@ -50,8 +51,6 @@ us_states_data.boundary.plot(ax=ax, linewidth=1, edgecolor='black')
 ax.set_title('Frequency of Home Retention Issues by State', fontdict={'fontsize': 14}, pad=20)
 ax.set_axis_off()
 plt.tight_layout()
-#plt.show()
-
 
 #save as PNG
 plt.savefig("heatmaps/housing_heatmap.png", dpi=300)

@@ -31,9 +31,9 @@ fig, ax = plt.subplots(1, figsize=(20, 10))
 # custom color map
 
 colors_income = [
-    (0/255, 200/255, 0/255),  # Lowest color
+    (0/255, 200/255, 0/255),     # Lowest color
     (199/255, 192/255, 70/255),  # Middle color
-    (200/255, 0/255, 0/255)   # Highest color
+    (200/255, 0/255, 0/255)      # Highest color
 ]
 
 cmap_income = LinearSegmentedColormap.from_list("custom", colors_income)
@@ -43,7 +43,6 @@ us_states_data.boundary.plot(ax=ax, linewidth=1, edgecolor='black')
 ax.set_title('Combined Data', fontdict={'fontsize': 14}, pad=20)
 ax.set_axis_off()
 plt.tight_layout()
-#plt.show()
 
 # save as PNG
 plt.savefig("heatmaps/combined_heatmap.png", dpi=300)
