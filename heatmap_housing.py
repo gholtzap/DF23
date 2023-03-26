@@ -11,7 +11,6 @@ housing_data = pd.read_csv('data/housing_data.csv')
 filtered_data = housing_data.query("Count != 0").dropna(subset=[c2])
 filtered_data = filtered_data.query(f"{c2}>=300")
 
-
 # Calculate the average annual income by state
 state_avg_income = filtered_data.groupby(c1)[c2].mean().reset_index()
 
@@ -33,14 +32,14 @@ fig, ax = plt.subplots(1, figsize=(20, 10))
 # custom color map
 
 colors_housing = [
-    (0/255, 255/255, 0/255),  # Lowest color
+    (200/255, 0/255, 0/255) ,  # Lowest color
     (199/255, 192/255, 70/255),  # Middle color
-    (255/255, 0/255, 0/255)   # Highest color
+    (0/255, 200/255, 0/255)# Highest color
 ]
 
 cmap_housing = LinearSegmentedColormap.from_list("custom", colors_housing)
 
-us_states_data.plot(column=c2, cmap=cmap_housing, linewidth=0.8, ax=ax, edgecolor='0.8', legend=True, legend_kwds={'label': "Average Annual Income", 'orientation': "horizontal", 'shrink': 0.5, 'pad': 0.02})
+us_states_data.plot(column=c2, cmap=cmap_housing, linewidth=0.8, ax=ax, edgecolor='0.8', legend=True, legend_kwds={'label': "Frequency of Home Retention Issues", 'orientation': "horizontal", 'shrink': 0.5, 'pad': 0.02})
 ax.set_title('Average Annual Income by State', fontdict={'fontsize': 14}, pad=20)
 ax.set_axis_off()
 plt.tight_layout()

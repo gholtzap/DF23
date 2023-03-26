@@ -1,4 +1,5 @@
 import pandas as pd
+import csv
 
 # Read the CSV file
 data = pd.read_csv('data/housing_data.csv')
@@ -35,3 +36,17 @@ for key, value in scores_income.items():
         combined_dict[key] *= (1/value)  # If the key exists, multiply by the inverse of the income
 
 print(combined_dict)
+
+
+def write_monthly_data_to_csv(combined_dict, output_dir):
+    for month_key, data in combined_dict.items():
+        file_name = f"{output_dir}/data_{month_key[1]}_{month_key[0]}.csv"
+        
+        with open(file_name, 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            
+            for row in data:
+                writer.writerow(row)
+
+output_directory = 'data/combined_data.csv'
+write_monthly_data_to_csv(combined_dict, output_directory)

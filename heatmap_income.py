@@ -33,7 +33,7 @@ colors_income = [
 
 cmap_income = LinearSegmentedColormap.from_list("custom", colors_income)
 
-us_states_data.plot(column=c2, cmap=cmap_income, linewidth=0.8, ax=ax, edgecolor='0.8', legend=True, legend_kwds={'label': "Housing Issues Frequency", 'orientation': "horizontal", 'shrink': 0.5, 'pad': 0.02})
+us_states_data.plot(column=c2, cmap=cmap_income, linewidth=0.8, ax=ax, edgecolor='0.8', legend=True, legend_kwds={'label': "Average Annual Income", 'orientation': "horizontal", 'shrink': 0.5, 'pad': 0.02})
 ax.set_title('Average Annual Income by State', fontdict={'fontsize': 14}, pad=20)
 ax.set_axis_off()
 plt.tight_layout()
